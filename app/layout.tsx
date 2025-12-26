@@ -59,8 +59,8 @@ export default async function RootLayout({
       >
         <Navbar />
         <PopupNotification popup={popup} />
-        {SanityLive />
-        <children}
+        <SanityLive />
+        {children}
         <Footer />
       </body>
     </html>
