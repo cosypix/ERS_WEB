@@ -1,4 +1,5 @@
 import { client, urlFor } from "@/sanity/lib/sanity";
+import { sanityFetch } from "@/sanity/lib/live";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -20,8 +21,8 @@ async function getEvent(slug: string) {
     button1,
     button2
   }`;
-
-  const event = await client.fetch(query, { slug });
+  
+  const { data: event } = await sanityFetch({ query, params: { slug } });
   return event;
 }
 
